@@ -1,20 +1,17 @@
 # Intel NVM Update Tool (nvmupdate64e)
 
-Due to Intel licensing, the binary is not included in this repo.
+The `nvmupdate64e` binary for FreeBSD x64 is included in this directory.
 
-## Download
+## About
 
-1. Go to: https://www.intel.com/content/www/us/en/download/19627
-2. Accept the license and download the FreeBSD `.tar.gz` (~48MB)
-3. Extract and find: `E810/FreeBSDx64/nvmupdate64e`
+This is the Intel Ethernet NVM Update Tool extracted from the E810 NVM Update Package for FreeBSD. Intel doesn't publish a standalone NVM tool for i225/i226, but this binary is **universal** — it works for all Intel Ethernet controllers, including the 2500 series (i225/i226).
 
-This is the "Non-Volatile Memory (NVM) Update Utility for Intel Ethernet E810 Series — FreeBSD".
+Confirmed working by the OPNsense community: https://forum.opnsense.org/index.php?topic=48765.0
 
-## Why E810?
+## Source
 
-Intel doesn't publish a standalone NVM tool for i225/i226. However, the `nvmupdate64e` binary is **universal** — it works for all Intel Ethernet controllers, including the 2500 series (i225/i226).
-
-The OPNsense community confirmed this works: https://forum.opnsense.org/index.php?topic=48765.0
+Extracted from: https://www.intel.com/content/www/us/en/download/19627
+(Non-Volatile Memory Update Utility for Intel Ethernet E810 Series — FreeBSD)
 
 ## Compatibility
 

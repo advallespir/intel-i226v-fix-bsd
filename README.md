@@ -141,19 +141,15 @@ This permanently fixes the bug at the hardware level.
 2. **Firmware `.bin`** — The NVM image for your flash variant
 3. **`.cfg` file** — Tells the tool what to update
 
-### Getting nvmupdate64e
+### Getting the files
 
-Intel doesn't provide a standalone tool for i226-V. However, the binary from the E810 package works for all Intel Ethernet controllers.
+Everything is included in this repo:
 
-1. Go to: https://www.intel.com/content/www/us/en/download/19627
-2. Download "Non-Volatile Memory (NVM) Update Utility for Intel Ethernet E810 Series — FreeBSD"
-3. Extract and find: `E810/FreeBSDx64/nvmupdate64e`
-
-This binary works on FreeBSD 13.4+ and FreeBSD 14 (OPNsense 24.x - 26.x).
-
-### Getting Firmware Binaries
-
-Download from: https://github.com/BillyCurtis/Intel-i226-V-NVM-Firmware
+- `tools/nvmupdate64e` — Intel NVM Update Tool (FreeBSD x64 binary)
+- `firmware/FXVL_125C_V_2MB_2.32.bin` — Firmware for 2MB flash variant
+- `firmware/FXVL_125C_V_1MB_2.32.bin` — Firmware for 1MB flash variant
+- `configs/nvmupdate_2mb.cfg` — Config file for 2MB NICs
+- `configs/nvmupdate_1mb.cfg` — Config file for 1MB NICs
 
 You need to know if your NICs have **1MB or 2MB flash**. See [Determining Flash Size](#determining-flash-size).
 
@@ -308,13 +304,14 @@ OPNsense uses `csh`, not `bash`. Create config files on another machine and SCP 
 │   ├── nvmupdate_2mb.cfg      # Config for 2MB flash NICs
 │   └── nvmupdate_1mb.cfg      # Config for 1MB flash NICs
 ├── firmware/
-│   └── README.md              # Links to download firmware binaries
+│   ├── README.md              # ETrackId mapping table
+│   ├── FXVL_125C_V_1MB_2.32.bin  # 1MB firmware binary
+│   └── FXVL_125C_V_2MB_2.32.bin  # 2MB firmware binary
 ├── tools/
-│   └── README.md              # How to get nvmupdate64e
+│   ├── README.md              # Tool info and compatibility
+│   └── nvmupdate64e           # Intel NVM Update Tool (FreeBSD x64)
 └── tunables.txt               # OPNsense tunables list
 ```
-
-Firmware binaries and the Intel tool are NOT included due to licensing. See the respective README files for download instructions.
 
 ---
 

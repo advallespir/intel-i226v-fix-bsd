@@ -1,21 +1,19 @@
 # Firmware Binaries
 
-Due to licensing restrictions, firmware binaries are not included in this repo.
+Firmware binaries for Intel I226-V v2.32 are included in this directory.
 
-## Download
-
-Get the I226-V firmware from:
-
-**https://github.com/BillyCurtis/Intel-i226-V-NVM-Firmware**
-
-### Files you need for V2.32:
+## Included Files
 
 | File | Flash Size | ETrackId |
 |------|-----------|----------|
 | `FXVL_125C_V_1MB_2.32.bin` | 1MB | 0x80000425 |
 | `FXVL_125C_V_2MB_2.32.bin` | 2MB | 0x80000422 |
 
-Download both. Try 2MB first; if it fails, use 1MB.
+Try 2MB first; if it fails with error id=6, use 1MB.
+
+## Source
+
+Original firmware binaries from: https://github.com/BillyCurtis/Intel-i226-V-NVM-Firmware
 
 ### How to determine your flash size
 
