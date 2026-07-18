@@ -1,0 +1,41 @@
+# OPNsense / FreeBSD Tunables for Intel I226-V NIC Stability
+# ============================================================
+#
+# Add via OPNsense GUI: System → Settings → Tunables
+# Or for pfSense: System → Advanced → System Tunables
+#
+# IMPORTANT: Reboot after adding. DO NOT apply changes without rebooting.
+# Changing EEE at runtime on firmware < 2.22 will crash all NICs.
+#
+# Adjust the interface numbers (0-7) based on your NIC count.
+# Check your interfaces with: sysctl dev.igc
+#
+# Performance impact: None. Speed remains 2.5Gbps.
+# Power impact: ~2-5W extra total.
+
+# === PCIe Power Management ===
+hw.igc.disable_aspm = 1
+hw.pci.do_power_nodriver = 3
+
+# === Energy Efficient Ethernet (the main culprit) ===
+# Check which sysctl name your system uses:
+#   sysctl dev.igc.0 | grep -i eee
+# It may be eee_control or eee_disabled depending on version.
+dev.igc.0.eee_control = 0
+dev.igc.1.eee_control = 0
+dev.igc.2.eee_control = 0
+dev.igc.3.eee_control = 0
+dev.igc.4.eee_control = 0
+dev.igc.5.eee_control = 0
+dev.igc.6.eee_control = 0
+dev.igc.7.eee_control = 0
+
+# === Flow Control ===
+dev.igc.0.fc = 0
+dev.igc.1.fc = 0
+dev.igc.2.fc = 0
+dev.igc.3.fc = 0
+dev.igc.4.fc = 0
+dev.igc.5.fc = 0
+dev.igc.6.fc = 0
+dev.igc.7.fc = 0
